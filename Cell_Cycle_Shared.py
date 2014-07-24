@@ -139,7 +139,7 @@ def declare_parameters():
     
 ### ** Initial Conditions **
 def declare_initial_conditions():
-    
+     
     Initial(CDK2(phos='u',b=None,c=None), Y5_0)
     Initial(CycD(c=1) % CDK4(phos='p', b=None, c=1), Y6_0)
     Inital(p27(b=None), Y11_0)
