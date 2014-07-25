@@ -7,9 +7,8 @@ from pysb.integrate import odesolve
 import pylab as pl
 from numpy import linspace
 from sympy import sympify
-from scipy import constants
-
-from G1_S_v2 import *
+from scipy import constants 
+from G1_S_v2 import * 
 from G2_M_v2 import *
 from Cell_Cycle_Shared import *
 
@@ -77,7 +76,7 @@ generate_equations(model, verbose=True)
 #     print x
 #    
 # quit()
-#  
+# quit()
 # from pysb.generator.bng import BngGenerator
 # print BngGenerator(model).get_content()
 
