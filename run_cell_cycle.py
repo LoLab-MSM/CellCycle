@@ -8,18 +8,45 @@ import pylab as pl
 from numpy import linspace
 from sympy import sympify
 from scipy import constants 
-from G1_S_v2 import * 
-from G2_M_v2 import *
-from Cell_Cycle_Shared import *
 
+ 
+import G1_S_v2
+ 
+import G2_M_v2
+ 
+import cell_cycle_shared
 
-declare_monomers()
-declare_parameters()
-declare_initial_conditions()
-declare_observables()
-declare_functions()
-declare_rules()
+# G1_S_v2.declare_monomers()
+# 
+# from G1_S_v2 import *
+# from G2_M_v2 import *
+# from cell_cycle_shared import *
+# from cell_cycle_shared import declare_initial_conditions as shared_dic
+
+    
+Model()
+
+# for monomers in model.monomers:
+#     print monomers    
+    
+cell_cycle_shared.declare_monomers()
+G2_M_v2.declare_parameters()
+G1_S_v2.declare_parameters()
+cell_cycle_shared.declare_parameters()
+cell_cycle_shared.declare_initial_conditions()
+cell_cycle_shared.declare_observables()
+cell_cycle_shared.declare_functions()
+G2_M_v2.declare_rules()
+G1_S_v2.simulate_signal_degradation()
+G1_S_v2.p16_p27_inhibition()
+G1_S_v2.CDK2_activation()
+G1_S_v2.Rb_E2F_activation()
+G1_S_v2.DNA_damage_pathway()
+cell_cycle_shared.declare_rules()
      
+for monomers in model.monomers:
+    print monomers
+    
 generate_equations(model, verbose=True)
 
 ### *** Checking and Printing Everything to Screen ***
