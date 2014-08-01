@@ -24,10 +24,7 @@ import cell_cycle_shared
 # from cell_cycle_shared import declare_initial_conditions as shared_dic
 
     
-Model()
-
-# for monomers in model.monomers:
-#     print monomers    
+Model()  
     
 cell_cycle_shared.declare_monomers()
 G2_M_v2.declare_parameters()
@@ -35,7 +32,28 @@ G1_S_v2.declare_parameters()
 cell_cycle_shared.declare_parameters()
 cell_cycle_shared.declare_initial_conditions()
 cell_cycle_shared.declare_observables()
-cell_cycle_shared.declare_functions()
+# cell_cycle_shared.declare_functions()
+G2_M_v2.declare_functions()
+
+for m in model.monomers:
+    print m
+    
+for p in model.parameters:
+    print p
+    
+for ic in model.initial_conditions:
+    print ic
+
+for obs in model.observables:
+    print obs
+
+for rules in model.rules:
+    print rules
+    
+for exp in model.expressions:
+    print exp
+
+
 G2_M_v2.declare_rules()
 G1_S_v2.simulate_signal_degradation()
 G1_S_v2.p16_p27_inhibition()
@@ -44,8 +62,7 @@ G1_S_v2.Rb_E2F_activation()
 G1_S_v2.DNA_damage_pathway()
 cell_cycle_shared.declare_rules()
      
-for monomers in model.monomers:
-    print monomers
+
     
 generate_equations(model, verbose=True)
 

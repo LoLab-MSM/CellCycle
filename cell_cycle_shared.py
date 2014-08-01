@@ -308,6 +308,8 @@ def declare_functions():
     Expression("sig_deg", sympify("G1_S_k74 - G1_S_k73*(signal-signal_damp)"))
     Expression("kdamp_DDS0", sympify("G1_S_k75*DDS_0"))
     
+    alias_model_components()
+    
    
 ### ** Rules **
 def declare_rules():
